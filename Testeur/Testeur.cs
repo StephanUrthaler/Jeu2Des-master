@@ -5,18 +5,19 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using Jeu2Des;
-
+using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters;
 
 namespace Testeur
 {
     class Testeur
     {
-        
+
         public static void Main(string[] args)
         {
-                       
+
             //Le jeu est crée (avec ses 2 des et son classement)
-            Jeu MonJeu = new Jeu();         
+            Jeu MonJeu = new Jeu();
 
             //Jouons quelques parties ....
             MonJeu.JouerPartie(); //1ere partie avec un joueur par défaut
@@ -26,8 +27,14 @@ namespace Testeur
             MonJeu.JouerPartie("Sarah"); //Encore une partie 
             MonJeu.JouerPartie("Lucie"); //Encore une partie
             MonJeu.JouerPartie(); //Encore une partie 
-            
-            Console.ReadKey();            
+            Console.WriteLine("");
+            MonJeu.VoirClassement();
+
+
+
+
+
+            Console.ReadKey();
         }
     }
 }
