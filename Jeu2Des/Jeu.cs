@@ -29,9 +29,9 @@ namespace Jeu2Des
         private De[] _Des = new De[2];
 
 
-        private Classement Classement;
-
-
+        //private Binary binary;
+        //private XML xml;
+        private JSON json;
 
         /// <summary>
         /// Crée un jeu de 2 Dés avec un classement
@@ -44,11 +44,12 @@ namespace Jeu2Des
             _Des[0] = new De();
             _Des[1] = new De();
 
-            Classement = new Classement();
-            //Classement.Savebinaire();
-            //Classement.SaveXml();
-            Classement.SaveJson();
-
+            //binary = new Binary();
+            //binary.Save();
+            //xml = new XML();
+            //xml.Save();
+            json = new JSON();
+            json.Save();
         }
 
         /// <summary>
@@ -64,8 +65,9 @@ namespace Jeu2Des
             //On fait jouer le joueur en lui passant les 2 dés
             int resultat = _Joueur.Jouer(_Des);
 
-            Classement.AjouterEntree(_Joueur.Nom, _Joueur.Score);
-
+            //binary.AjouterEntree(_Joueur.Nom, _Joueur.Score);
+            //xml.AjouterEntree(_Joueur.Nom, _Joueur.Score);
+            json.AjouterEntree(_Joueur.Nom, _Joueur.Score);
         }
 
         /// <summary>
@@ -81,18 +83,19 @@ namespace Jeu2Des
             //Le joueur Joue et on récupère son score
             int resultat = _Joueur.Jouer(_Des);
 
-            Classement.AjouterEntree(_Joueur.Nom, _Joueur.Score);
-
+            //binary.AjouterEntree(_Joueur.Nom, _Joueur.Score);
+            //xml.AjouterEntree(_Joueur.Nom, _Joueur.Score);
+            json.AjouterEntree(_Joueur.Nom, _Joueur.Score);
         }
 
         public void VoirClassement()
         {
-
-            Classement.TopN();
-            //Classement.Loadbinaire();
-            //Classement.LoadXml();
-            Classement.LoadJson();
-
+            //binary.TopN();
+            //binary.Load();
+            //xml.TopN();
+            //xml.Load();
+            json.TopN();
+            json.Load();
         }
 
     }
