@@ -30,10 +30,6 @@ namespace Testeur
             Console.WriteLine("");
             MonJeu.VoirClassement();
 
-
-
-
-
             Console.ReadKey();
         }
     }

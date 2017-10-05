@@ -15,7 +15,7 @@ namespace Jeu2Des
     [Serializable]
     public class Classement
     {
-
+        //Relation class Entree
         private List<Entree> _ListeEntrees;
         [DataMember]
         public List<Entree> ListeEntrees
