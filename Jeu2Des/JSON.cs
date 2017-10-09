@@ -9,10 +9,6 @@ namespace Jeu2Des
 {
     class JSON : Classement
     {
-        //Constructor
-        public JSON()
-        {
-        }
         public override void Load()
         {
             Stream fichier = File.Create("sérializationJson.json");

@@ -9,7 +9,6 @@ namespace Jeu2Des
 {
     public class Binary : Classement
     {
-
         //method serialize binary
         public override void Load()
         {

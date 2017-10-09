@@ -30,13 +30,18 @@ namespace Jeu2Des
 
         private Classement Sauvegarde;
 
-
-
-        public void ChoixSauvegard(int nbr)
+        /// <summary>
+        /// Crée un jeu de 2 Dés avec un classement
+        /// </summary> 
+        public Jeu(int choix)
         {
-            int i = nbr;
 
-            switch (i)
+            //A la création du jeu : les 2 dés sont crées 
+            //On aurait pu créer les 2 Des juste au moment de jouer  
+            _Des[0] = new De();
+            _Des[1] = new De();
+
+            switch (choix)
             {
                 case 1:
                     Sauvegarde = new Binary();
@@ -49,20 +54,6 @@ namespace Jeu2Des
                     break;
             }
             Sauvegarde.Save();
-        }
-
-
-
-        /// <summary>
-        /// Crée un jeu de 2 Dés avec un classement
-        /// </summary> 
-        public Jeu()
-        {
-
-            //A la création du jeu : les 2 dés sont crées 
-            //On aurait pu créer les 2 Des juste au moment de jouer  
-            _Des[0] = new De();
-            _Des[1] = new De();
 
         }
 

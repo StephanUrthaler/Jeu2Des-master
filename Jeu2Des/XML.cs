@@ -9,10 +9,6 @@ namespace Jeu2Des
 {
     class XML : Classement
     {
-        //Constructor
-        public XML()
-        {
-        }
         public override void Load()
         {
             Stream fichier = File.Create("sérializationXML.xml");
