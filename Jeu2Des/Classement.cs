@@ -24,7 +24,6 @@ namespace Jeu2Des
             set { _ListeEntrees = value; }
         }
 
-        //Constructor
         protected Classement()
         {
             _ListeEntrees = new List<Entree>();
