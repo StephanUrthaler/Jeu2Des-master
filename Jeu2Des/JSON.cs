@@ -9,14 +9,14 @@ namespace Jeu2Des
 {
     class JSON : Classement
     {
-        public override void Load()
+        public override void Save()
         {
             Stream fichier = File.Create("sérializationJson.json");
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(ListeEntrees.GetType());
             serializer.WriteObject(fichier, ListeEntrees);
             fichier.Close();
         }
-        public override void Save()
+        public override void Load()
         {
             if (File.Exists("sérializationJson.json"))
             {

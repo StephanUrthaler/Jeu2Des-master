@@ -9,14 +9,14 @@ namespace Jeu2Des
 {
     class XML : Classement
     {
-        public override void Load()
+        public override void Save()
         {
             Stream fichier = File.Create("sérializationXML.xml");
             XmlSerializer serializer = new XmlSerializer(ListeEntrees.GetType());
             serializer.Serialize(fichier, ListeEntrees);
             fichier.Close();
         }
-        public override void Save()
+        public override void Load()
         {
             if (File.Exists("sérializationXML.xml"))
             {

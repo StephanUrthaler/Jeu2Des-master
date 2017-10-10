@@ -17,20 +17,34 @@ namespace Testeur
         {
 
             //Le jeu est crée (avec ses 2 des et son classement)
-            Jeu MonJeu = new Jeu(3);
-            Console.WriteLine("Nouvelle liste de joueur");
-            Console.WriteLine("");
-            //Jouons quelques parties ....
-            MonJeu.JouerPartie(); //1ere partie avec un joueur par défaut
-            MonJeu.JouerPartie(); //2eme partie avec un joueur par défaut
-            MonJeu.JouerPartie("David"); //3eme partie
-            MonJeu.JouerPartie("David"); //Encore une partie  
-            MonJeu.JouerPartie("Sarah"); //Encore une partie 
-            MonJeu.JouerPartie("Lucie"); //Encore une partie
-            MonJeu.JouerPartie(); //Encore une partie 
-            Console.WriteLine("");
-            Console.WriteLine("");
-            MonJeu.VoirClassement();
+            Jeu MonJeu = new Jeu(2);
+            Console.WriteLine("Quel est votre prénom ?");
+            string prenom = Console.ReadLine();
+            Console.WriteLine("Bonjour " + prenom + ", voulez-vous jouer ? O/N");
+            string reponse = Console.ReadLine();
+            string attente = "o";
+
+            if (reponse.ToLower() == attente)
+            {
+                while (reponse.ToLower() == attente)
+                {
+                    Console.WriteLine("");
+                    //Jouons quelques parties ....
+
+                    MonJeu.JouerPartie(prenom); //Joueur console
+                    MonJeu.JouerPartie("David"); //Joueur supplémentaire
+                    MonJeu.JouerPartie("Sarah"); //Joueur supplémentaire
+
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    MonJeu.VoirClassement();
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("Voulez-vous rejouer ? O/N");
+                    reponse = Console.ReadLine();
+                }
+            }
+            MonJeu.Quitter();
 
             Console.ReadKey();
         }

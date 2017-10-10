@@ -59,6 +59,7 @@
     <Compile Include="Classement.cs" />
     <Compile Include="De.cs" />
     <Compile Include="Entree.cs" />
+    <Compile Include="Factorie_Sauvegarde.cs" />
     <Compile Include="Jeu.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="JSON.cs" />

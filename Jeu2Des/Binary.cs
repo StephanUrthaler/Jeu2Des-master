@@ -10,7 +10,7 @@ namespace Jeu2Des
     public class Binary : Classement
     {
         //method serialize binary
-        public override void Load()
+        public override void Save()
         {
             Stream fichier = File.Create("sérializatiobinaire.txt");
             BinaryFormatter serializer = new BinaryFormatter();
@@ -18,7 +18,7 @@ namespace Jeu2Des
             fichier.Close();
         }
 
-        public override void Save()
+        public override void Load()
         {
             if (File.Exists("sérializatiobinaire.txt"))
             {

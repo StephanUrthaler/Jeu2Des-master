@@ -28,34 +28,24 @@ namespace Jeu2Des
 
         private De[] _Des = new De[2];
 
-        private Classement Sauvegarde;
+        private Classement Classement;
+
+        
 
         /// <summary>
         /// Crée un jeu de 2 Dés avec un classement
         /// </summary> 
-        public Jeu(int choix)
+        public Jeu(int option)
         {
-
             //A la création du jeu : les 2 dés sont crées 
             //On aurait pu créer les 2 Des juste au moment de jouer  
             _Des[0] = new De();
             _Des[1] = new De();
 
-            switch (choix)
-            {
-                case 1:
-                    Sauvegarde = new Binary();
-                    break;
-                case 2:
-                    Sauvegarde = new XML();
-                    break;
-                default:
-                    Sauvegarde = new JSON();
-                    break;
-            }
-            Sauvegarde.Save();
-
+            Classement = FactorySauvegarde.ChoixSauvegarde(option);
+            Classement.Load();
         }
+
 
         /// <summary>
         /// Permet de faire une partie du jeu de dés en indiquant le nom du joueur
@@ -70,7 +60,7 @@ namespace Jeu2Des
             //On fait jouer le joueur en lui passant les 2 dés
             int resultat = _Joueur.Jouer(_Des);
 
-            Sauvegarde.AjouterEntree(_Joueur.Nom, _Joueur.Score);
+            Classement.AjouterEntree(_Joueur.Nom, _Joueur.Score);
         }
 
         /// <summary>
@@ -86,13 +76,18 @@ namespace Jeu2Des
             //Le joueur Joue et on récupère son score
             int resultat = _Joueur.Jouer(_Des);
 
-            Sauvegarde.AjouterEntree(_Joueur.Nom, _Joueur.Score);
+            Classement.AjouterEntree(_Joueur.Nom, _Joueur.Score);
         }
 
         public void VoirClassement()
         {
-            Sauvegarde.TopN();
-            Sauvegarde.Load();
+            Classement.TopN();
+
+        }
+        public void Quitter()
+        {
+            Classement.Save();
+            Environment.Exit(0);
         }
 
     }
