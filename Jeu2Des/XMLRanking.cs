@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace Jeu2Des
 {
-    class XML : Classement
+    class XMLRanking : Classement
     {
         public override void Save()
         {

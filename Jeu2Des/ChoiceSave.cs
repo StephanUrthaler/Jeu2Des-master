@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Jeu2Des
 {
-    public class FactorySauvegarde
+    public class ChoiceSave
     {
        
         public static Classement CreateClassement(int choix)
@@ -13,13 +13,13 @@ namespace Jeu2Des
             switch (choix)
             {
                 case 1:
-                    return new Binary();
+                    return new BinaryRanking();
 
                 case 2:
-                    return new XML();
+                    return new XMLRanking();
 
                 default:
-                    return new JSON();
+                    return new JSONRanking();
             }
 
         }

@@ -42,7 +42,7 @@ namespace Jeu2Des
             _Des[0] = new De();
             _Des[1] = new De();
 
-            Classement = FactorySauvegarde.CreateClassement(option);
+            Classement = ChoiceSave.CreateClassement(option);
             Classement.Load();
         }
 

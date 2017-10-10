@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Jeu2Des
 {
-    class JSON : Classement
+    class JSONRanking : Classement
     {
         public override void Save()
         {

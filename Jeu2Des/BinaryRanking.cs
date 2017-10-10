@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Jeu2Des
 {
-    public class Binary : Classement
+    public class BinaryRanking : Classement
     {
         //method serialize binary
         public override void Save()
