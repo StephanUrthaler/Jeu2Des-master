@@ -8,7 +8,7 @@ namespace Jeu2Des
     public class FactorySauvegarde
     {
        
-        public static Classement ChoixSauvegarde(int choix)
+        public static Classement CreateClassement(int choix)
         {
             switch (choix)
             {
