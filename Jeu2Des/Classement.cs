@@ -13,7 +13,7 @@ namespace Jeu2Des
 {
     [DataContract]
     [Serializable]
-    public abstract class Classement
+    public class Classement
     {
         //Relation class Entree
         private List<Entree> _ListeEntrees;
@@ -24,7 +24,7 @@ namespace Jeu2Des
             set { _ListeEntrees = value; }
         }
 
-        protected Classement()
+        public Classement()
         {
             _ListeEntrees = new List<Entree>();
         }
@@ -46,9 +46,7 @@ namespace Jeu2Des
                 Console.WriteLine(joueur);
             }
         }
-        //method serialize binary
-        public abstract void Load();
-        public abstract void Save();
+
     }
 }
 

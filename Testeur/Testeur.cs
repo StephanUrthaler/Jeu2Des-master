@@ -17,7 +17,7 @@ namespace Testeur
         {
 
             //Le jeu est crée (avec ses 2 des et son classement)
-            Jeu MonJeu = new Jeu(2);
+            Jeu MonJeu = new Jeu(8);
             Console.WriteLine("Quel est votre prénom ?");
             string prenom = Console.ReadLine();
             Console.WriteLine("Bonjour " + prenom + ", voulez-vous jouer ? O/N");

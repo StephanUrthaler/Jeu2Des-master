@@ -7,29 +7,27 @@ using System.Xml.Serialization;
 
 namespace Jeu2Des
 {
-    class XMLRanking : Classement
+    public class XMLRanking : StrategyRanking
     {
-        public override void Save()
+
+        public override void Save(Object objet)
         {
             Stream fichier = File.Create("sérializationXML.xml");
-            XmlSerializer serializer = new XmlSerializer(ListeEntrees.GetType());
-            serializer.Serialize(fichier, ListeEntrees);
+            XmlSerializer serializer = new XmlSerializer(objet.GetType());
+            serializer.Serialize(fichier, objet);
             fichier.Close();
         }
-        public override void Load()
+        public override Object Load(Type type)
         {
             if (File.Exists("sérializationXML.xml"))
             {
                 Stream fichier = File.OpenRead("sérializationXML.xml");
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Entree>));
+                XmlSerializer serializer = new XmlSerializer(type);
                 Object obj = serializer.Deserialize(fichier);
-                List<Entree> listerecupxml = (List<Entree>)obj;
-                foreach (Entree joueur1 in listerecupxml)
-                {
-                    AjouterEntree(joueur1.Nom, joueur1.Score);
-                }
                 fichier.Close();
+                return obj;
             }
+            return null;
         }
     }
 }

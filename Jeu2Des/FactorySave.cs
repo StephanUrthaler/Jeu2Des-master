@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Jeu2Des
 {
-    public class ChoiceSave
+    public class FactorySave
     {
-       //
-        public static Classement CreateClassement(int choix)
+       
+        public static StrategyRanking CreateClassement(int choix)
         {
             switch (choix)
             {

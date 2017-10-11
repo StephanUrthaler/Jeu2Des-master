@@ -59,11 +59,12 @@
     <Compile Include="Classement.cs" />
     <Compile Include="De.cs" />
     <Compile Include="Entree.cs" />
-    <Compile Include="ChoiceSave.cs" />
+    <Compile Include="FactorySave.cs" />
     <Compile Include="Jeu.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="JSONRanking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StrategyRanking.cs" />
     <Compile Include="XMLRanking.cs" />
   </ItemGroup>
   <ItemGroup>

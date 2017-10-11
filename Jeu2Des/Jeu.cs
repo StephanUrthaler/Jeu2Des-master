@@ -29,6 +29,12 @@ namespace Jeu2Des
         private De[] _Des = new De[2];
 
         private Classement Classement;
+        public Classement classement
+        {
+            get { return Classement; }
+        }
+
+        private StrategyRanking StrategyRanking;
 
         
 
@@ -42,8 +48,20 @@ namespace Jeu2Des
             _Des[0] = new De();
             _Des[1] = new De();
 
-            Classement = ChoiceSave.CreateClassement(option);
-            Classement.Load();
+
+            StrategyRanking = FactorySave.CreateClassement(option);
+
+
+
+            if ( (StrategyRanking.Load(typeof(Classement))) != null)
+            {
+                Classement = (Classement)StrategyRanking.Load(typeof(Classement));
+            }
+            else
+            {
+                Classement = new Classement();
+            }
+
         }
 
 
@@ -86,7 +104,8 @@ namespace Jeu2Des
         }
         public void Quitter()
         {
-            Classement.Save();
+
+            StrategyRanking.Save(Classement);
             Environment.Exit(0);
         }
 

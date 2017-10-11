@@ -7,32 +7,32 @@ using System.Text;
 
 namespace Jeu2Des
 {
-    public class BinaryRanking : Classement
+    public class BinaryRanking : StrategyRanking
     {
+
+
         //method serialize binary
-        public override void Save()
+        public override void Save(Object objet)
         {
             Stream fichier = File.Create("sérializatiobinaire.txt");
             BinaryFormatter serializer = new BinaryFormatter();
-            serializer.Serialize(fichier, ListeEntrees);
+            serializer.Serialize(fichier, objet);
             fichier.Close();
+
         }
 
-        public override void Load()
+
+        public override Object Load(Type Type)
         {
             if (File.Exists("sérializatiobinaire.txt"))
             {
                 Stream fichier = File.OpenRead("sérializatiobinaire.txt");
                 BinaryFormatter serializer = new BinaryFormatter();
-                Object obj = serializer.Deserialize(fichier);
-                //L'objet doit être casté pour qu'on puisse accéder à ces méthodes
-                List<Entree> listerecupbinaire = (List<Entree>)obj;
-                foreach (Entree joueur1 in listerecupbinaire)
-                {
-                    AjouterEntree(joueur1.Nom, joueur1.Score);
-                }
+                object obj = serializer.Deserialize(fichier);
                 fichier.Close();
+                return obj;
             }
+            return null;
         }
     }
 }
